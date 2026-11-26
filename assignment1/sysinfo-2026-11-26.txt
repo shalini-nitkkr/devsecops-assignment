@@ -1,0 +1,24 @@
+=================================
+System Information
+=================================
+Hostname: Shalini
+Date/Time: 2026-11-26 08:17:33
+Logged-in User: shalini
+
+Disk Usage:
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sdc       1007G  1.3G  955G   1% /
+
+Memory Usage:
+               total        used        free      shared  buff/cache   available
+Mem:           3.7Gi       503Mi       3.1Gi       3.0Mi       333Mi       3.2Gi
+Swap:          1.0Gi          0B       1.0Gi
+
+Top 5 Processes by Memory:
+    PID USER     %MEM COMMAND
+    213 root      0.5 unattended-upgr
+     55 root      0.4 systemd-journal
+    180 root      0.3 wsl-pro-service
+      1 root      0.3 systemd
+    107 systemd+  0.3 systemd-resolve
+

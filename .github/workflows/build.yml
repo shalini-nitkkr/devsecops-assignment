@@ -1,0 +1,32 @@
+name: Build Docker Image
+
+on: push            # runs on every push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Docker image (job fails if build fails)
+        run: docker build -t myapp ./assignment2
+
+      # Bonus: run the container and check /health
+      - name: Run container
+        run: docker run -d -p 5000:5000 --name myapp-container myapp
+
+      - name: Check /health
+        run: |
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            if curl -fsS localhost:5000/health; then
+              echo
+              echo "Health check passed"
+              exit 0
+            fi
+            echo "Waiting for app..."
+            sleep 2
+          done
+          echo "Health check failed"
+          docker logs myapp-container
+          exit 1
